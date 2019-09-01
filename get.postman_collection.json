@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "dc0e2d20-bf8e-409a-8861-2b5f8b4d7a78",
+		"name": "get",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2776f08c-7610-4520-9999-0cea02c594e2",
+						"exec": [
+							"pm.test(\"list users Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"list users page is present\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"page\" );",
+							"});",
+							"",
+							"pm.test(\"list users page = 2\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.page).to.eql(2);",
+							"});",
+							"",
+							"pm.test(\"list users per_page is present\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"per_page\" );",
+							"});",
+							"",
+							"pm.test(\"list users per_page =6\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.per_page).to.eql(6);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b0bc9d93-825a-487e-a9b5-e79d8533bbbf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b10b9178-4530-4636-a43c-98648d1ede53",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
